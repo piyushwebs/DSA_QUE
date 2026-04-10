@@ -4,7 +4,6 @@ class Solution {
         Arrays.fill(dp,-1);
         int n = cost.length;
         int val1 = findMin(cost,-1,dp);
-        System.out.println(Arrays.toString(dp));
         return val1;
     }
     public int findMin(int[] cost,int i,int[] dp)
