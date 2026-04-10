@@ -44,7 +44,6 @@ class Solution {
             if(curr!=null)
             curr = curr.next;
         } 
-
         return prev;
     }
 }
