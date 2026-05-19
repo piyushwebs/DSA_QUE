@@ -1,18 +1,26 @@
 class Solution {
     public int getCommon(int[] nums1, int[] nums2) {
-        HashMap<Integer,Integer> hm = new HashMap<>();
-        for(int val:nums1)
+        int i = 0;
+        int j = 0;
+        int n = nums1.length;
+        int m = nums2.length;
+        while(i<n && j<m)
         {
-            hm.put(val,hm.getOrDefault(val,0)+1);
+            while(i<n && nums1[i]<nums2[j])
+            {
+                i++;
+            }
+            if(i==n) return -1;
+            if(nums1[i] == nums2[j])
+            {
+                return nums1[i];
+            }
+            if(j==n) return -1;
+            while(j<m && nums2[j]<nums1[i])
+            {
+                j++;
+            }
         }
-        int min = Integer.MAX_VALUE;
-        for(int val1:nums2)
-        {
-           if(hm.containsKey(val1))
-           {
-            min = Math.min(min,val1);
-           }
-        }
-        return min == Integer.MAX_VALUE?-1:min;
+        return -1;
     }
 }
