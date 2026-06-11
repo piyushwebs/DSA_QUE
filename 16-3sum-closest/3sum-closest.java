@@ -1,25 +1,54 @@
 class Solution {
     public int threeSumClosest(int[] nums, int target) {
+        int n = nums.length;
+        int ans = Integer.MAX_VALUE;
+        int minDiff = Integer.MAX_VALUE;
         Arrays.sort(nums);
-        int closest_sum = Integer.MAX_VALUE / 2;  // A large value but not overflow
-        
-        for (int i = 0; i < nums.length - 2; ++i) {
-            int left = i + 1, right = nums.length - 1;
-            while (left < right) {
-                int current_sum = nums[i] + nums[left] + nums[right];
-                if (Math.abs(current_sum - target) < Math.abs(closest_sum - target)) {
-                    closest_sum = current_sum;
-                }
-                if (current_sum < target) {
-                    ++left;
-                } else if (current_sum > target) {
-                    --right;
-                } else {
-                    return current_sum;
-                }
+        // Brute force approach but gives time limit exceed 
+        // for(int i=0;i<n;i++)
+        // {
+        //     for(int j=i+1;j<n;j++)
+        //     {
+        //         for(int k=j+1;k<n;k++)
+        //         {
+        //             int sum = nums[i]+nums[j]+nums[k];
+                   
+        //                 if(minDiff>(Math.abs(target-sum)))
+        //                 {
+        //                     ans = sum;
+        //                     minDiff = Math.abs(target-sum);
+        //                 }
+                    
+        //         }
+        //     }
+        // }
+        for(int i=0;i<n-2;i++)
+    {
+        int left = i+1;
+        int right = n-1;
+        while(left<right)
+        {
+            int sum = nums[left]+nums[i]+nums[right];
+            if(minDiff>(Math.abs(target-sum)))
+            {
+                ans = sum;
+                minDiff = Math.abs(target-sum);
             }
-        }
-        
-        return closest_sum;
+            
+            if(sum>target)
+            {
+                right--;
+            }
+            else if(sum<target)
+            {
+                left++;
+            }
+            else
+            {
+                return ans;
+            }
+           }
+              }
+        return ans;
     }
 }
