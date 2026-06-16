@@ -21,8 +21,9 @@ class Solution {
             }
             else
             {
-                String copy = str.toString();
-                str = new StringBuilder((copy+copy));
+                String copy = str.toString(); 
+                String Dup = copy+copy;
+                str = new StringBuilder((Dup));
                 
             }
         }
