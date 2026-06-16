@@ -21,8 +21,8 @@ class Solution {
             }
             else
             {
-            
-                String Dup = str.toString()+str.toString();
+                String copy = str.toString(); 
+                String Dup = copy+copy;
                 str = new StringBuilder(Dup);
                 
             }
