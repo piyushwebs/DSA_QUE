@@ -14,7 +14,6 @@ class Solution {
                 {
                   str.deleteCharAt(str.length()-1);
                 }
-
             }
             else if(c=='%')
             {
@@ -22,12 +21,10 @@ class Solution {
             }
             else
             {
-                StringBuilder rev = new StringBuilder(str);
-                char[] chh = rev.toString().toCharArray();
-                for(char chhh:chh)
-                {
-                    str.append(chhh);
-                }
+            
+                String Dup = str.toString()+str.toString();
+                str = new StringBuilder(Dup);
+                
             }
         }
     
