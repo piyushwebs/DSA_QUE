@@ -21,9 +21,7 @@ class Solution {
             }
             else
             {
-                String copy = str.toString(); 
-                String Dup = copy+copy;
-                str = new StringBuilder((Dup));
+                str.append(str.toString());
                 
             }
         }
