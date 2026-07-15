@@ -13,8 +13,6 @@ class Solution {
            hm.put(prerequisites[i][0],prerequisites[i][1]);
         }
         Arrays.sort(prerequisites,(a,b)->Integer.compare(a[1],b[1]));
-
-        System.out.println(Arrays.deepToString(prerequisites));
         for(int i=0;i<n;i++)
         {
             int val1 = prerequisites[i][0];
