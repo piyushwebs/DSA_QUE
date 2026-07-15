@@ -3,7 +3,6 @@ class Solution {
         int n = prerequisites.length;
         if (n == 0)
             return true;
-        Arrays.sort(prerequisites, (a, b) -> Integer.compare(a[0], b[0]));
         HashMap<Integer, ArrayList<Integer>> hm = new HashMap<>();
         for (int i = 0; i < n; i++) {
             if (hm.containsKey(prerequisites[i][1])) {
@@ -25,7 +24,6 @@ class Solution {
                 }
             }
         }
-        System.out.println(hm);
         Arrays.sort(prerequisites, (a, b) -> Integer.compare(a[1], b[1]));
         for (int i = 0; i < n; i++) {
             int val1 = prerequisites[i][0];
