@@ -1,28 +1,29 @@
 class Solution {
     public int subarraySum(int[] nums, int k) {
-        int n = nums.length;
 
-        int[] prefixSum = new int[n];
+        HashMap<Integer, Integer> hm = new HashMap<>();
+
+        // Prefix sum 0 has occurred once (before the array starts)
+        hm.put(0, 1);
+
+        int prefix = 0;
         int ans = 0;
 
-        for(int i=0;i<n;i++)
-        {
-            prefixSum[i] = i==0?nums[i]:prefixSum[i-1]+nums[i];
+        for (int num : nums) {
 
-            if(prefixSum[i] == k) ans++;
-        }
+            // Update current prefix sum
+            prefix += num;
 
-        for(int i=0;i<n;i++)
-        {
-            for(int j=i+1;j<n;j++)
-            {
-                if((prefixSum[j]-prefixSum[i]) == k)
-                {
-                    ans++;
-                }
+            // Check if there exists a previous prefix
+            // such that prefix - previousPrefix = k
+            if (hm.containsKey(prefix - k)) {
+                ans += hm.get(prefix - k);
             }
+
+            // Store current prefix sum
+            hm.put(prefix, hm.getOrDefault(prefix, 0) + 1);
         }
-        
+
         return ans;
     }
 }
