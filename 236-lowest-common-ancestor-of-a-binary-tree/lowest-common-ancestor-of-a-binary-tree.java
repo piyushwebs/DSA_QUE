@@ -9,54 +9,58 @@
  */
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        List<TreeNode> pPath = new ArrayList<>();
-        List<TreeNode> qPath = new ArrayList<>();
-
-        findPath(root,pPath,p);
-        findPath(root,qPath,q);
-
-        int pSize = pPath.size();
-        int qSize = qPath.size();
-
-        for(int i=0;i<pSize;i++)
+        
+        if(root == p || root == q)
         {
-            for(int j=0;j<qSize;j++)
-            {
-                if(pPath.get(i) == qPath.get(j))
-                {
-                    return pPath.get(i);
-                }
-            }
+            return root;
         }
-        return null;
+        TreeNode leftSide = findNode(root.left,p,q);
+        TreeNode rightSide = findNode(root.right,p,q);
+
+        if(leftSide == null)
+        {
+            return rightSide;
+        }
+
+        if(rightSide == null)
+        {
+            return leftSide;
+        }
+
+        return root;
     }
 
-    public boolean findPath(TreeNode root,List<TreeNode> arr,TreeNode val)
+    public TreeNode findNode(TreeNode root,TreeNode p,TreeNode q)
     {
-        if(root == null) 
+        if(root == null)
         {
-            return false;
+            return null;
         }
 
-        if(root == val)
+        if(root == p || root == q)
         {
-            arr.add(root);
-            return true;
+            return root;
         }
 
+        TreeNode leftSide = findNode(root.left,p,q);
+        TreeNode rightSide = findNode(root.right,p,q);
 
-
-        if(findPath(root.left,arr,val))
+        if(leftSide == null && rightSide == null)
         {
-            arr.add(root);
-            return true;
-        }
-        if(findPath(root.right,arr,val))
-        {
-            arr.add(root);
-            return true;
+            return null;
         }
 
-        return false;
+        if(leftSide == null)
+        {
+            return rightSide;
+        }
+
+        if(rightSide == null)
+        {
+            return leftSide;
+        }
+
+        return root;
     }
+
 }
