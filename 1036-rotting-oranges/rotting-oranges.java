@@ -34,9 +34,6 @@ class Solution {
         }
 
 
-         System.out.println("1 : "+st);
-
-         System.out.println("2 :" + q);
 
         if(st.size() == 0)
         {
