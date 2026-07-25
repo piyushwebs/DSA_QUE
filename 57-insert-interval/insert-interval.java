@@ -41,7 +41,6 @@ class Solution {
           break;
         }
          
-        System.out.println(Arrays.deepToString(intervals));
 
         if(!flag)
         {
