@@ -5,8 +5,6 @@ class Solution {
         Arrays.sort(intervals,(a,b)-> Integer.compare(a[0],b[0]));
 
         List<List<Integer>> arr = new ArrayList<>();
-
-        System.out.println(Arrays.deepToString(intervals));
         
         int left = 0;
         int right = 0;
