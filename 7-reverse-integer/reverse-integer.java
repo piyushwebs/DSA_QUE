@@ -12,6 +12,7 @@ class Solution {
         {
             return 0;
         }
+
         int ans = 0;
         
         boolean flag = false;
@@ -42,7 +43,7 @@ class Solution {
             str.append(val);
             x = x/10;
         }
-        System.out.println(str);
+        
         long val = Long.parseLong(str.toString());
         if(val>limit || val<Integer.MIN_VALUE)
         {
