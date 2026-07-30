@@ -17,9 +17,7 @@ class Solution {
             }
             
             mulVal = str.toString();
-            // System.out.println("mul for every itr: " + mulVal);
             ans = addNum(ans,mulVal);
-            // System.out.println(ans);
         }
         int k = 0;
         while(k<ans.length() && ans.charAt(k)=='0')
