@@ -8,11 +8,10 @@ class Solution {
         int[] dp = new int[n+1];
         Arrays.fill(dp,Integer.MAX_VALUE);
 
-        for(int i=1;Math.pow(i,2)<n;i++)
-        {
-            dp[n] = Math.min(dp[n],checkPow(n,(int)Math.pow(i,2),dp));
-        }
-        return dp[n]+1;
+      
+            dp[n] = checkPow(n,0,dp);
+
+        return dp[n];
     }
     public int checkPow(int n,int sum,int[] dp)
     {
