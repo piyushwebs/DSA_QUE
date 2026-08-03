@@ -44,26 +44,5 @@ class Solution {
         return max;
     }
 
-    public int findProfit(int[] prices,int idx,int profit,int n)
-    {
-        if(idx>n)
-        {
-
-            return profit;
-        }
-        int max = 0;
-        for(int i=idx;i<n;i++)
-        {
-            if(prices[i]>prices[idx])
-            {
-                System.out.println(prices[i]);
-                profit = profit + prices[i]-prices[idx];
-                System.out.println("Profit: "+profit);
-                profit = findProfit(prices,i+2,profit,n);
-                max = Math.max(profit,max);
-                profit = profit - (prices[i] - prices[idx]);
-            }
-        }
-        return max;
-    }
+   
 }
