@@ -20,15 +20,12 @@ class Solution {
                 {
                     dpNeg[i] = Math.max(dpNeg[i],(dpPos[j]+1));
                 }
-            }
-
-            for(int j=i+1;j<n;j++)
-            {
-                if(val<nums[j])
+                 if(val<nums[j])
                 {
                     dpPos[i] = Math.max(dpPos[i],(dpNeg[j]+1));
                 }
             }
+
         }
 
         return Math.max(dpPos[0],dpNeg[0]);
