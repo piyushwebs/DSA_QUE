@@ -18,7 +18,7 @@ class Solution {
             {
                 if(val>nums[j])
                 {
-                    dpPos[i] = Math.max(dpPos[i],(dpNeg[j]+1));
+                    dpNeg[i] = Math.max(dpNeg[i],(dpPos[j]+1));
                 }
             }
 
@@ -26,7 +26,7 @@ class Solution {
             {
                 if(val<nums[j])
                 {
-                    dpNeg[i] = Math.max(dpNeg[i],(dpPos[j]+1));
+                    dpPos[i] = Math.max(dpPos[i],(dpNeg[j]+1));
                 }
             }
         }
